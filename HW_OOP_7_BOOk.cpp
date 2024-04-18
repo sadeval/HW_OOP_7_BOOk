@@ -100,34 +100,34 @@ public:
         return (*this > other) || (*this == other);
     }
 
-    istream& ReadFromConsole(istream& input) {
+    istream& ReadFromConsole(istream& in) {
         cout << "Welcome!\n";
         cout << "Please, enter the name of the book: ";
-        input >> name;
+        in >> name;
         cout << "Please, enter the total number of pages: ";
-        input >> pages;
+        in >> pages;
         cout << "Please, enter the book's weight in megabytes: ";
-        input >> weight;
-        return input;
+        in >> weight;
+        return in;
     }
 
-    ostream& WriteToConsole(ostream& output) const {
-        output << "\n================================\n";
-        output << "Book state:\n";
-        output << "Book name: " << name << "\n";
-        output << "Total pages: " << pages << "\n";
-        output << "Takes up mb: " << weight << "\n";
-        output << "\n================================\n\n";
-        return output;
+    ostream& WriteToConsole(ostream& out) const {
+        out << "\n================================\n";
+        out << "Book state:\n";
+        out << "Book name: " << name << "\n";
+        out << "Total pages: " << pages << "\n";
+        out << "Takes up mb: " << weight << "\n";
+        out << "\n================================\n\n";
+        return out;
     }
 };
 
-istream& operator>>(istream& input, Book& book) {
-    return book.ReadFromConsole(input);
+istream& operator>>(istream& in, Book& book) {
+    return book.ReadFromConsole(in);
 }
 
-ostream& operator<<(ostream& output, const Book& book) {
-    return book.WriteToConsole(output);
+ostream& operator<<(ostream& out, const Book& book) {
+    return book.WriteToConsole(out);
 }
 
 int main() {
